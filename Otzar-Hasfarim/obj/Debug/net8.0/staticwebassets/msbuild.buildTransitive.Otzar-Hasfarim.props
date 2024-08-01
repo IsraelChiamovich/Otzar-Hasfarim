@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Otzar-Hasfarim.props" />
+</Project>

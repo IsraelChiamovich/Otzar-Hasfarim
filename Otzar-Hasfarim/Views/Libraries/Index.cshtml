@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Otzar_Hasfarim.Models.LibraryModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Library</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.ActionLink("View shelf", "Shelves", new { id = item.Id }) |
+                @Html.ActionLink("Add shelf", "CreateShelf", new { id=item.Id }) |
+                @Html.ActionLink("Add books", "AddSet", new { libraryId = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

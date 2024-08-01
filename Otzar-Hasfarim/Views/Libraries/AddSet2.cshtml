@@ -1,0 +1,49 @@
+﻿@model Otzar_Hasfarim.ViewModels.SetVM
+
+
+@{
+    ViewData["Title"] = "AddSet";
+}
+
+<h1>AddSet</h1>
+
+<h4>SetVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddMoreToSet" method="post">
+            <input type="hidden" asp-for="LibraryId" />
+            <input type="hidden" asp-for="SetModel.Name" />
+            <!-- מידע על הספר החדש -->
+            <div class="form-group">
+                <label asp-for="Book.Name" class="control-label">Book name</label>
+                <input asp-for="Book.Name" class="form-control" />
+                <span asp-validation-for="Book.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Height" class="control-label">Height</label>
+                <input asp-for="Book.Height" class="form-control" />
+                <span asp-validation-for="Book.Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Width" class="control-label">Width</label>
+                <input asp-for="Book.Width" class="form-control" />
+                <span asp-validation-for="Book.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add book to set" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
